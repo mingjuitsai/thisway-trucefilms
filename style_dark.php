@@ -269,11 +269,6 @@ portfolioitems li .image_frame{
 	left:50%;
 	margin-left:30px;
 	margin-top:-13px;
-	margin-right:10px;
-	-webkit-transform: translateX(-50%);
-	-ms-transform: translateX(-50%);
-	-moz-transform: translateX(-50%);
-	transform: translateX(-50%);
 }
 .hoverWrapper .modal,
 .hoverWrapper .modalVideo{
@@ -288,9 +283,6 @@ portfolioitems li .image_frame{
 .hoverWrapper .modal:hover, .hoverWrapper .modal:active{background-position:0 0;}
 .hoverWrapper .modalVideo{background: url('images/imageVideo.jpg') -104px 0;}
 .hoverWrapper .modalVideo:hover, .hoverWrapper .modalVideo:active{background-position:0 0;}
-
-
-
 
 .blogdate{
 	position:absolute;
@@ -564,12 +556,7 @@ a.closebutton:active{
 	opacity:0;
 	border-radius:20px;
 	height:50px;
-	/* width:100%; */
-	
-}
-
-#mainmenu ul ul.sub-menu{
-	white-space: nowrap; /* always keep .sub-menu in oneline */
+	width:100%;
 }
 
 #mainmenu ul ul li{
