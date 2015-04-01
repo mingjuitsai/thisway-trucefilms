@@ -937,7 +937,15 @@ function applyImageModal(){
 		allow_expand: false,
 		default_width:$('#body-wrapper').width(), 
 		default_height: $('#body-wrapper').height(),
-		social_tools: false
+		social_tools: false,
+		changepicturecallback: function(){
+			/* Called everytime an item is shown/changed */
+			pauseBg();
+		},
+		callback: function(){
+			/* Called when prettyPhoto is closed */
+			playBg();
+		}
 	});
 }
 
