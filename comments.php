@@ -18,12 +18,38 @@
 <?php }elseif(!comments_open()){ ?>
 	
 <?php }else{ ?>
-	<?php comment_form(); ?>
+<?php 
+	
+	/* Customise Comment Form */
+	$truce_fields =  array(
+
+	  'author' =>
+	    '<p class="comment-form-author"><label for="author">' . __( 'Name', 'domainreference' ) . '</label> ' .
+	    ( $req ? '<span class="required">*</span>' : '' ) .
+	    '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
+	    '" size="30"' . $aria_req . ' /></p>',
+
+	  'email' =>
+	    '<p class="comment-form-email"><label for="email">' . __( 'Email', 'domainreference' ) . '</label> ' .
+	    ( $req ? '<span class="required">*</span>' : '' ) .
+	    '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+	    '" size="30"' . $aria_req . ' /></p>',
+	);
+
+	$truce_args = array(
+		'fields' => apply_filters( 'comment_form_default_fields', $truce_fields )
+	);
+
+	comment_form($truce_args); 
+
+?>
 <?php } ?>
 </div>
 <!-- END: comments -->
 
+
 <?php
+
 function get_comment_nav()
 {
 ?>
