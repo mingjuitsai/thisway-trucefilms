@@ -561,8 +561,13 @@ a.closebutton:active{
 	border-radius:20px;
 	height:50px;
 	/* width:100%; */
+	
+}
+
+#mainmenu ul ul.sub-menu{
 	white-space: nowrap; /* always keep .sub-menu in oneline */
 }
+
 #mainmenu ul ul li{
 	position:static;
 	float:left;
