@@ -941,6 +941,9 @@ function applyImageModal(){
 	});
 }
 
+/* Developer comment:
+setImageAnimations function can be largely replaced by CSS3 transition or animation 
+*/
 function setImageAnimations(){
 	// Image Animation
 	$('#contentBox .image_frame a').each(function(){
@@ -949,7 +952,8 @@ function setImageAnimations(){
 			
 		$(this).hover(function(){
 			$(this).find('.hoverWrapperBg').stop().animate({opacity:0.85}, 500, 'easeOutExpo');
-			$(this).find('.hoverWrapper .link').stop().animate({marginLeft:10, opacity:1}, 300, 'easeOutExpo');
+			/* if modal video link is enabled in create_protfolio.php, marginLeft needs 10px for spacing */
+			$(this).find('.hoverWrapper .link').stop().animate({marginLeft:0, opacity:1}, 300, 'easeOutExpo');
 			$(this).find('.hoverWrapper .modal, .hoverWrapper .modalVideo').stop().animate({marginLeft:-36, opacity:1}, 300, 'easeOutExpo');
 			$(this).find('.hoverWrapper h3').stop().delay(100).animate({opacity:'1'}, 300);
 			$(this).find('.hoverWrapper .enter-text').stop().delay(200).animate({opacity:'1'}, 300);

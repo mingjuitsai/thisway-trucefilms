@@ -130,12 +130,16 @@ echo '<h1 class="caption" >'.$pageTitle.' <a class="closebutton" href="#!/"></a>
 							<div class="enter-text"><?php $more = 0; the_content(''); ?> </div>
 							<?php } ?>
 							<span class="link clickable" data-link="#!<?php the_permalink(); ?>"></span>
+
+							<!-- modal video link disable -->
 							<?php
-							$modalClass = 'modal';
+							/* $modalClass = 'modal';
 							if($sourceType=='vimeo' || $sourceType=='youtube' || $sourceType=='videolink')
-								$modalClass = 'modalVideo';						
+								$modalClass = 'modalVideo';		
+							*/				
 							?>
-							<span class="<?php echo $modalClass;?> nolink" href="javascript:void(0);"></span>
+							<!-- <span class="<?php //echo $modalClass;?> nolink" href="javascript:void(0);"></span> -->
+
 						</div>
 					</a>
 				</div>

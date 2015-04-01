@@ -257,7 +257,6 @@ portfolioitems li .image_frame{
 	transition: all 0.5s ease-in-out;
 	-webkit-transition: all 0.5s ease-in-out;
 	-o-transition: all 0.5s ease-in-out;
-	
 	display:block;
 	width:26px;
 	height:26px;
@@ -270,6 +269,11 @@ portfolioitems li .image_frame{
 	left:50%;
 	margin-left:30px;
 	margin-top:-13px;
+	margin-right:10px;
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	transform: translateX(-50%);
 }
 .hoverWrapper .modal,
 .hoverWrapper .modalVideo{
