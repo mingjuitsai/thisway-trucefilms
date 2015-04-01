@@ -53,21 +53,36 @@ if(has_post_thumbnail() || (!empty($sourceStr) && $sourceOpen=='e'))
 <?php } ?>
 
 
+
+
+
+<!-- Only Show Single Post info if post_category does NOT contain 'Portfolio' -->
+<?php
+$cat = get_the_category(get_the_ID());
+$cat_slug = $cat->slug;
+
+if (strpos($cat_slug, 'portfolio')!==false):
+?>
+
 <div class="divider"></div>
-<div id="singleLeft">
-	<ul>
-		<li class="singleDate"><?php echo get_the_time('d.m.Y');?></li>
-		<li class="singleAuthor"><?php posted_on_template();?></li>
-		<li class="singleComments"><?php comments_number(__('No Comment', 'ThisWay'),__('1 Comment', 'ThisWay'),__('% Comments', 'ThisWay')); ?></li>
-		<?php $tags_list = wp_get_post_tags($post->ID, array( 'fields' => 'names' ));				
-		if ( $tags_list ){ ?>
-			<li class="singleTags"><?php echo implode(' ,', $tags_list);?></li>
-		<?php } ?>
-	</ul>
-</div>
-<div id="singleRight">
-<?php $more=1; the_content(''); ?>
-</div>
+
+	<div id="singleLeft">
+		<ul>
+			<li class="singleDate"><?php echo get_the_time('d.m.Y');?></li>
+			<li class="singleAuthor"><?php posted_on_template();?></li>
+			<li class="singleComments"><?php comments_number(__('No Comment', 'ThisWay'),__('1 Comment', 'ThisWay'),__('% Comments', 'ThisWay')); ?></li>
+			<?php $tags_list = wp_get_post_tags($post->ID, array( 'fields' => 'names' ));				
+			if ( $tags_list ){ ?>
+				<li class="singleTags"><?php echo implode(' ,', $tags_list);?></li>
+			<?php } ?>
+		</ul>
+	</div>
+	<div id="singleRight">
+	<?php $more=1; the_content(''); ?>
+	</div>
+
+<?php endif; ?>
+
 
 <hr class="seperator" />
 <div class="divider"></div>
