@@ -352,10 +352,10 @@ function initMenu(){
 	$('#mainmenu ul li ul').each(function(){
 		var ulW = 0;
 		$(this).find('li').each(function(){ ulW += $(this).width(); });
-		$(this).css({width:(ulW)+'px'});
+		$(this).css({width:(ulW)+'px'}); // set fixed widht on all ul including .sub-menu, if necessary ?
 		var ulW = 0;
 		$(this).find('li').each(function(){ ulW += $(this).width();	});
-		$(this).css({width:(ulW+2)+'px'});
+		$(this).css({width:(ulW+2)+'px'}); // set fixed widht on all ul including .sub-menu, if necessary ?
 		var menuLeft = ((((ulW+20)-$(this).parent().width())/2));
 		var topMenuLeft = parseInt($(this).parent().offset().left);
 		if(topMenuLeft-menuLeft<0)
