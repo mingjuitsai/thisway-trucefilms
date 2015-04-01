@@ -1,0 +1,5 @@
+[28-Mar-2015 14:50:46 Australia/Melbourne] PHP Fatal error:  Call to undefined function untrailingslashit() in /home/trucefilms/public_html/test/wptest/wp-content/themes/ThisWay/plugins/wp-thumb/wpthumb.php on line 28
+[28-Mar-2015 15:15:25 Australia/Melbourne] PHP Fatal error:  Class 'WP_Image_Editor_GD' not found in /home/trucefilms/public_html/test/wptest/wp-content/themes/ThisWay/plugins/wp-thumb/wpthumb.image-editor.php on line 3
+[28-Mar-2015 17:29:42 Australia/Melbourne] PHP Fatal error:  Call to undefined function add_filter() in /home/trucefilms/public_html/test/wptest/wp-content/themes/ThisWay/plugins/wp-thumb/wpthumb.background-fill.php on line 106
+[28-Mar-2015 18:03:16 Australia/Melbourne] PHP Fatal error:  Call to undefined function add_filter() in /home/trucefilms/public_html/test/wptest/wp-content/themes/ThisWay/plugins/wp-thumb/wpthumb.watermark.php on line 80
+[28-Mar-2015 19:45:55 Australia/Melbourne] PHP Fatal error:  Call to undefined function add_action() in /home/trucefilms/public_html/test/wptest/wp-content/themes/ThisWay/plugins/wp-thumb/wpthumb.crop-from-position.php on line 15

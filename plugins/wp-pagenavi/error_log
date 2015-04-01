@@ -1,0 +1,2 @@
+[28-Mar-2015 15:05:15 Australia/Melbourne] PHP Fatal error:  Call to undefined function add_action() in /home/trucefilms/public_html/test/wptest/wp-content/themes/ThisWay/plugins/wp-pagenavi/scb/load.php on line 27
+[28-Mar-2015 20:03:46 Australia/Melbourne] PHP Fatal error:  Class 'scbAdminPage' not found in /home/trucefilms/public_html/test/wptest/wp-content/themes/ThisWay/plugins/wp-pagenavi/admin.php on line 3
