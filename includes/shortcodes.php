@@ -1,5 +1,20 @@
 <?php
 
+
+add_shortcode('fontawesome', 'sh_fontawesome');
+function sh_fontawesome($attr, $content=null){
+	$content = wpautop(trim($content));
+	$attr = shortcode_atts(
+		array(
+			'class' => 'no foo',
+			'url' => '',
+			'target' => '_blank'
+		), $attr, 'fontawesome' );
+
+	return '<a target='.$attr['target'].' href="'.$attr["url"].'"><i class="'.$attr["class"].' fontawesome_icon"></i></a>';
+}
+
+
 add_shortcode('person_info', 'sh_person_info');
 function sh_person_info($attr, $content=null){
 	$re = '<div class="personName">
