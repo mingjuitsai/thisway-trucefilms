@@ -1187,19 +1187,19 @@ function contentVimeo_stateChange() {
 
 	window.console.log('contentVimeo_stateChange');
 
-	// $("#contentBox iframe").each(function() {
+	$("#contentBox iframe").each(function() {
 
-	// 	$(this).addClass('contentBox_vimeo');
+		$(this).addClass('contentBox_vimeo');
 		
-	// 	var iframe = $(this)[0];
-	// 	var player = $f(iframe);
+		var iframe = $(this)[0];
+		var player = $f(iframe);
 
-	// 	player.addEvent('ready', function() {
-	// 		player.addEvent('play', contentVimeo_onPlay);
-	// 		player.addEvent('pause', contentVimeo_onPause);
-	// 	});
+		player.addEvent('ready', function() {
+			player.addEvent('play', contentVimeo_onPlay);
+			player.addEvent('pause', contentVimeo_onPause);
+		});
 	
-	// });
+	});
 }
 
 function contentVimeo_onPlay(id){
