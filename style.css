@@ -79,3 +79,14 @@ You can add your custom styles to this css file. This Way uses style_dark.php or
 	font-style: 13px;
 	color: #000;
 }
+
+
+/* Mobile */
+
+#videoExpander {
+	background: none;
+}
+
+
+
+
