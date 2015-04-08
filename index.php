@@ -165,7 +165,7 @@ var bgStretch = <?php eopt('bgStretch','true');?>;
 			if(strpos($logoURL,'http')===false)
 				$logoURL = $tmpurl.'/'.$logoURL;
 			?>
-			<img src="<?php echo $logoURL; ?>" title="<?php bloginfo('name'); ?>" border="0"/>
+			<img src="<?php echo $logoURL; ?>" title="<?php // disable now bloginfo('name'); ?>" border="0"/>
 		</div>
 		<!-- END: Logo -->
 		

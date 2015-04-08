@@ -57,9 +57,25 @@ You can add your custom styles to this css file. This Way uses style_dark.php or
 	transform: translateX(-50%);
 }
 
-.fontawesome_icon {
+
+/* Icon Fonts */
+
+.icon_fonts {
   color: #ffcc00;
   font-size: 1.7em;
   line-height: 1.45;
-  margin-right: .1em;
+  margin-right: .2em;
+}
+
+.fontawesome_icon {
+}
+
+.ionicons_icon {
+}
+
+/* Portfolio */
+
+.hoverWrapper .enter-text p {
+	font-style: 13px;
+	color: #000;
 }

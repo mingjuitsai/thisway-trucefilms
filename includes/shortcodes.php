@@ -11,7 +11,20 @@ function sh_fontawesome($attr, $content=null){
 			'target' => '_blank'
 		), $attr, 'fontawesome' );
 
-	return '<a target='.$attr['target'].' href="'.$attr["url"].'"><i class="'.$attr["class"].' fontawesome_icon"></i></a>';
+	return '<a target='.$attr['target'].' href="'.$attr["url"].'"><i class="'.$attr["class"].' fontawesome_icon icon_fonts"></i></a>';
+}
+
+add_shortcode('ionicons', 'sh_ionicons');
+function sh_ionicons($attr, $content=null){
+	$content = wpautop(trim($content));
+	$attr = shortcode_atts(
+		array(
+			'class' => 'no foo',
+			'url' => '',
+			'target' => '_blank'
+		), $attr, 'ionicons' );
+
+	return '<a target='.$attr['target'].' href="'.$attr["url"].'"><i class="'.$attr["class"].' ionicons_icon icon_fonts"></i></a>';
 }
 
 
