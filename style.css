@@ -57,9 +57,9 @@ You can add your custom styles to this css file. This Way uses style_dark.php or
 	transform: translateX(-50%);
 }
 
+/* Typography */
 
-/* Icon Fonts */
-
+/* icon fonts */
 .icon_fonts {
   color: #ffcc00;
   font-size: 1.7em;
@@ -73,12 +73,23 @@ You can add your custom styles to this css file. This Way uses style_dark.php or
 .ionicons_icon {
 }
 
-/* Portfolio */
+/* Modules */
 
+.float-right {
+	float:right;
+	clear:right;
+}
+
+
+/* Layout */
+
+/* Portfolio */
 .hoverWrapper .enter-text p {
 	font-style: 13px;
 	color: #000;
 }
+
+
 
 
 /* Mobile */

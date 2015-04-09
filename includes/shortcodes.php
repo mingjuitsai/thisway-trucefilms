@@ -2,11 +2,11 @@
 
 
 add_shortcode('fontawesome', 'sh_fontawesome');
-function sh_fontawesome($attr, $content=null){
+function sh_fontawesome($attr){
 	$content = wpautop(trim($content));
 	$attr = shortcode_atts(
 		array(
-			'class' => 'no foo',
+			'class' => '',
 			'url' => '',
 			'target' => '_blank'
 		), $attr, 'fontawesome' );
@@ -15,16 +15,39 @@ function sh_fontawesome($attr, $content=null){
 }
 
 add_shortcode('ionicons', 'sh_ionicons');
-function sh_ionicons($attr, $content=null){
+function sh_ionicons($attr){
 	$content = wpautop(trim($content));
 	$attr = shortcode_atts(
 		array(
-			'class' => 'no foo',
+			'class' => '',
 			'url' => '',
 			'target' => '_blank'
 		), $attr, 'ionicons' );
 
 	return '<a target='.$attr['target'].' href="'.$attr["url"].'"><i class="'.$attr["class"].' ionicons_icon icon_fonts"></i></a>';
+}
+
+
+add_shortcode('float-right', 'sh_floatright');
+function sh_floatright($attr, $content=null){
+	$content = wpautop(trim($content));
+	$attr = shortcode_atts(
+		array(
+			'class' => '',
+		), $attr, 'float-right' );
+
+	return '<div class="float-right">'.do_shortcode($content).'</div>';
+}
+
+add_shortcode('float-left', 'sh_floatleft');
+function sh_floatleft($attr, $content=null){
+	$content = wpautop(trim($content));
+	$attr = shortcode_atts(
+		array(
+			'class' => '',
+		), $attr, 'float-left' );
+
+	return '<div class="float-left">'.do_shortcode($content).'</div>';
 }
 
 

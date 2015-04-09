@@ -762,6 +762,7 @@ function hideLoading(){
 }
 
 function pageLoadReady(){
+
 	var imageTotal = $('#contentBox img').length;
     var imageCount = 0;
 	if(imageTotal>0)
@@ -776,6 +777,8 @@ function pageLoadReady(){
 	}else{
 		pageLoaded();
 	}
+
+	window.console.log('pageLoadReady');
 
 	// Tag Vimeo iframe stateChange
 	contentVimeo_stateChange();
