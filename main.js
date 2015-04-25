@@ -580,7 +580,10 @@ function runBg(){
 			}
 		}else if($('#bgImages li.active iframe').attr('videotype')=='vimeo'){
 			activePlayer = 'vimeo';
-			$('#bgImageWrapper').prepend($('<div id="vmVideo"></div>').addClass('new').addClass('source').css('opacity','1'));
+			var vimeoID  = $('#bgImages li.active iframe').data('vimeoid');
+			loadVimeoPictures( vimeoID, $('#bgImageWrapper') );
+			
+			$('#bgImageWrapper').prepend($('<div id="vmVideo"></div>').addClass('new').addClass('source').css({ opacity:'1' }));
 			$('#vmVideo').append($('#bgImages li.active iframe').clone().attr('src', $('#bgImages li.active iframe').attr('src')+'&autoplay=0&loop=0&controls=0&player_id=vimeoplayer&autoplay=1&autopause=0').attr('id', 'vimeoplayer'));
 			$('#vmVideo iframe').each(function(){
 				$f(this).addEvent('ready', vimeoApiReady);
@@ -1210,12 +1213,30 @@ function contentVimeo_onPause(id){
 	playBg();
 }
 
-function bgVimeo_loadThumb() {
+function loadVimeoPictures( vimeoID, container ) {
 
-	window.console.log('thumbVimeo');
-	// $("#bgImage iframe").each(function(){
-	// 	$(this).css('height','720px');
-	// });
+	$.ajax({
+		url: 'http://vimeo.com/api/v2/video/' + vimeoID + '.xml',
+		type: 'GET',
+		//dataType: '',
+	})
+	.done(function(data) {
+		console.log("success");
+		var $xml = $( data );
+		var thumb_url = $xml.find('thumbnail_large').text();
+		var $container = container; 
+		$container.css({
+			'background-image': 'url(' + thumb_url + ')'
+		});
+		console.log(thumb_url + $container );
+	})
+	.fail(function(data) {
+		console.log("error" + data );
+	})
+	.always(function() {
+		console.log("complete");
+	});
+
 }
 
 
