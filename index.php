@@ -96,7 +96,7 @@ var bgStretch = <?php eopt('bgStretch','true');?>;
 <body <?php body_class(); ?>>
 <div id="body-wrapper">
 	<!-- BEGIN: Main Elements -->
-	<div id="bgImage"><div id="bgImageWrapper"></div></div>
+	<div id="bgImage"><div id="bgImageWrapper" class="bgImage"></div></div>
 	<div id="bgPattern"></div>
 	<div id="videoExpander"></div>
 	<div id="bgText"><h3></h3><div class="subText"></div></div>

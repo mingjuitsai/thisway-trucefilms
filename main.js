@@ -587,9 +587,10 @@ function runBg(){
 		}else if($('#bgImages li.active iframe').attr('videotype')=='vimeo'){
 			activePlayer = 'vimeo';
 			var vimeoID  = $('#bgImages li.active iframe').data('vimeoid');
-			loadVimeoPictures( vimeoID, $('#bgImageWrapper') );
 			
-			$('#bgImageWrapper').prepend($('<div id="vmVideo"></div>').addClass('new').addClass('source').css({ opacity:'1' }));
+			$('#bgImageWrapper').prepend($('<div id="vmVideo" class="vmVideo"></div>').addClass('new').addClass('source').css({ opacity:'1' }));
+			loadVimeoPictures( vimeoID, $('#vmVideo') );
+
 			$('#vmVideo').append($('#bgImages li.active iframe').clone().attr('src', $('#bgImages li.active iframe').attr('src')+'&autoplay=0&loop=0&controls=0&player_id=vimeoplayer&autoplay=1&autopause=0').attr({'id': 'vimeoplayer', 'class': 'bgVimeoPlayer'}));
 			$('#vmVideo iframe').each(function(){
 				$f(this).addEvent('ready', vimeoApiReady);
@@ -790,7 +791,8 @@ function pageLoadReady(){
 	window.console.log('pageLoadReady');
 
 	// Tag Vimeo iframe stateChange
-	contentVimeo_stateChange();	
+	contentVimeo_autoPlay();
+	//contentVimeo_stateChange();	
 
 }
 
@@ -1192,24 +1194,33 @@ function randomString(size) {
 
 // Custom Functions 
 
-function contentVimeo_stateChange() {
+function contentVimeo_stateChange(player) {
 
 	window.console.log('contentVimeo_stateChange');
 
-	$("#contentBox iframe").each(function() {
+	player.addEvent('play', contentVimeo_onPlay);
+	player.addEvent('pause', contentVimeo_onPause);
+	
+}
 
-		$(this).addClass('contentBox_vimeo');
+// auto play all Vimeo on content
+function contentVimeo_autoPlay() {
+
+	window.console.log('contentVimeo_autoPlay');
+
+	$("#contentBox iframe").each(function() {
 		
 		var iframe = $(this)[0];
 		var player = $f(iframe);
 
 		player.addEvent('ready', function() {
-			player.addEvent('play', contentVimeo_onPlay);
-			player.addEvent('pause', contentVimeo_onPause);
+			player.api('play');
+			contentVimeo_stateChange(player)
 		});
-	
+		
 	});
 }
+
 
 function contentVimeo_onPlay(id){
 	pauseBg();

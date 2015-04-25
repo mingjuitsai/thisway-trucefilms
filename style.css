@@ -82,10 +82,21 @@ You can add your custom styles to this css file. This Way uses style_dark.php or
 	clear:rightf;
 }
 
-/**/
+/* bg vimeo player */
 
 
-/* Layout */
+
+/* ===========
+	Layout 
+============== */
+
+/* general */
+
+.vmVideo {
+	background-size: cover;
+	background-position: 50% 50%;
+	position: relative;
+}
 
 /* Portfolio */
 .hoverWrapper .enter-text p {
@@ -93,10 +104,35 @@ You can add your custom styles to this css file. This Way uses style_dark.php or
 	color: #000;
 }
 
+/* Footer */
+#footer {
+}
+
+/* ===========
+	Mobile 
+============== */
 
 
+/* general */
 
-/* Mobile */
+.mobileDevice .vmVideo::before {
+	content: '';
+	width: 100%;
+	height: 100%;
+	display: block;
+	background: rgba(0, 0, 0, 0.76);
+}
+
+.mobileDevice .bgVimeoPlayer {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
 
 #videoExpander {
 	background: none;
