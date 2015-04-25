@@ -29,6 +29,7 @@ if( navigator.userAgent.match(/Android/i) ||
 
 // Init after Loaded
 $(window).load(function(){
+
 	// Set deeplink
 	$.history.init(openPage);
 	
@@ -45,6 +46,8 @@ $(window).load(function(){
 		audioSupport = false;
 		bgPaused = true;
 		$('#audioControls').hide();
+		// add a class to mobile
+		$('body').addClass('mobileDevice');
 	}
 	
 	if(mobileDevice){
@@ -432,8 +435,11 @@ function doSize(){
 	$('#bgImage .new').css({width:imgW+'px', height:imgH+'px'});
 	if(activePlayer == 'youtube')
 		ytplayer.setSize(imgW, imgH);
-	else if(activePlayer == 'vimeo')
-		$('#vimeoplayer').css({width:imgW+'px', height:imgH+'px'});
+	// only rezie when is not mobile 
+	else if(activePlayer == 'vimeo' )
+		$('#vimeoplayer').css({width:imgW+'px'});
+	else if ( !mobileDevice )
+		$('#vimeoplayer').css({height:imgH+'px'});
 	// Set Bg Image Position
 	$('#bgImage .new').css({left:imgLeft+'px', top:imgTop+'px'});
 	
@@ -584,7 +590,7 @@ function runBg(){
 			loadVimeoPictures( vimeoID, $('#bgImageWrapper') );
 			
 			$('#bgImageWrapper').prepend($('<div id="vmVideo"></div>').addClass('new').addClass('source').css({ opacity:'1' }));
-			$('#vmVideo').append($('#bgImages li.active iframe').clone().attr('src', $('#bgImages li.active iframe').attr('src')+'&autoplay=0&loop=0&controls=0&player_id=vimeoplayer&autoplay=1&autopause=0').attr('id', 'vimeoplayer'));
+			$('#vmVideo').append($('#bgImages li.active iframe').clone().attr('src', $('#bgImages li.active iframe').attr('src')+'&autoplay=0&loop=0&controls=0&player_id=vimeoplayer&autoplay=1&autopause=0').attr({'id': 'vimeoplayer', 'class': 'bgVimeoPlayer'}));
 			$('#vmVideo iframe').each(function(){
 				$f(this).addEvent('ready', vimeoApiReady);
 			});
@@ -625,7 +631,7 @@ function runBg(){
 	$('#bgImageWrapper .new').stop(true).animate({opacity:1}, 500);
 	
 	if(activePlayer == 'none' && !normalFade)
-		$('#bgImageWrapper .new').animate({width:$('#bgImageWrapper .new').width()+bW, height:$('#bgImageWrapper .new').height()+bH},bgTime+2000);
+		$('#bgImageWrapper .new').animate({width:$('#bgImageWrapper .new').width()+bW, height:$('#bgImageWrapper .new').height()+ bH},bgTime+2000);
 
 	if(bgTime>0 && bgPaused==false && activePlayer == 'none')
 		bgTimer = setInterval(autoBg, bgTime);

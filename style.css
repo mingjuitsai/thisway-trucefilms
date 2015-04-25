@@ -73,12 +73,16 @@ You can add your custom styles to this css file. This Way uses style_dark.php or
 .ionicons_icon {
 }
 
-/* Modules */
+/* ===========
+	Modules 
+============== */
 
 .float-right {
 	float:right;
-	clear:right;
+	clear:rightf;
 }
+
+/**/
 
 
 /* Layout */
