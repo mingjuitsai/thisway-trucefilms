@@ -38,6 +38,7 @@ else
 		} ?>
 </title>
 <meta name="fragment" content="!">
+<meta name="google-site-verification" content="d7AMtkf8hM1OaQiVIHpjEDCJCw3Mkiw6e7ZKpHZxSyU" />
 <meta name="description" content="<?php if(isset($_GET['_escaped_fragment_']) && !empty($_GET['_escaped_fragment_'])){
 	echo file_get_contents(site_url().'/'.$_GET['_escaped_fragment_'].addionalCharacter($_GET['_escaped_fragment_']).'info=description');
 	}else{ ?><?php bloginfo('description'); ?>
