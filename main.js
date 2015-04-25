@@ -433,13 +433,17 @@ function doSize(){
 	
 	// Set Bg Image W, H
 	$('#bgImage .new').css({width:imgW+'px', height:imgH+'px'});
-	if(activePlayer == 'youtube')
+	if(activePlayer == 'youtube'){
 		ytplayer.setSize(imgW, imgH);
-	// only rezie when is not mobile 
-	else if(activePlayer == 'vimeo' )
-		$('#vimeoplayer').css({width:imgW+'px'});
-	else if ( !mobileDevice )
-		$('#vimeoplayer').css({height:imgH+'px'});
+	} else if(activePlayer == 'vimeo' ){
+
+		$('#vimeoplayer').css({ width:imgW+'px'});
+		if(!mobileDevice) {
+			$('#vimeoplayer').css({ height:imgH+'px' });
+		}
+		
+	}
+			
 	// Set Bg Image Position
 	$('#bgImage .new').css({left:imgLeft+'px', top:imgTop+'px'});
 	
@@ -589,7 +593,8 @@ function runBg(){
 			var vimeoID  = $('#bgImages li.active iframe').data('vimeoid');
 			
 			$('#bgImageWrapper').prepend($('<div id="vmVideo" class="vmVideo"></div>').addClass('new').addClass('source').css({ opacity:'1' }));
-			loadVimeoPictures( vimeoID, $('#vmVideo') );
+			if(mobileDevice)
+				loadVimeoPictures( vimeoID, $('#vmVideo') );
 
 			$('#vmVideo').append($('#bgImages li.active iframe').clone().attr('src', $('#bgImages li.active iframe').attr('src')+'&autoplay=0&loop=0&controls=0&player_id=vimeoplayer&autoplay=1&autopause=0').attr({'id': 'vimeoplayer', 'class': 'bgVimeoPlayer'}));
 			$('#vmVideo iframe').each(function(){
@@ -1200,7 +1205,7 @@ function contentVimeo_stateChange(player) {
 
 	player.addEvent('play', contentVimeo_onPlay);
 	player.addEvent('pause', contentVimeo_onPause);
-	
+
 }
 
 // auto play all Vimeo on content
