@@ -139,7 +139,7 @@ var bgStretch = <?php eopt('bgStretch','true');?>;
 				if($row->TYPE=='image')
 					echo '<img class="source" src="'.$row->CONTENT.'" alt="'.htmlentities(stripslashes($row->CAPTION),ENT_QUOTES, "UTF-8").'" />';
 				elseif($row->TYPE=='vimeo')
-					echo '<iframe src="http://player.vimeo.com/video/'.$row->CONTENT.'?api=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;color=7d7d7d" width="'.$row->WIDTH.'" height="'.$row->HEIGHT.'" videotype="vimeo" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
+					echo '<iframe src="http://player.vimeo.com/video/'.$row->CONTENT.'?api=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;color=7d7d7d" width="'.$row->WIDTH.'" height="'.$row->HEIGHT.'" videotype="vimeo" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen data-vimeoid="'.$row->CONTENT.'"></iframe>';
 				elseif($row->TYPE=='youtube'){
 					echo '<iframe width="'.$row->WIDTH.'" height="'.$row->HEIGHT.'" src="http://www.youtube.com/embed/'.$row->CONTENT.'?wmode=transparent&rel=0" frameborder="0" videotype="youtube" videoid="'.$row->CONTENT.'" allowfullscreen></iframe>';
 				}elseif($row->TYPE=='iframe')

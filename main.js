@@ -781,10 +781,7 @@ function pageLoadReady(){
 	window.console.log('pageLoadReady');
 
 	// Tag Vimeo iframe stateChange
-	contentVimeo_stateChange();
-
-	//bgVimeo_loadThumb();
-	
+	contentVimeo_stateChange();	
 
 }
 
