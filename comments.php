@@ -30,7 +30,8 @@
 ?>
 
 
-<?php if(have_comments()){ ?>
+<?php if(have_comments()): ?>
+
 	<h4 id="comments-title">
 		<?php echo get_comments_number().__(' Comments to ','ThisWay').get_the_title(); ?>
 	</h4>
@@ -43,21 +44,21 @@
 	
 	<?php get_comment_nav();?>
 	
-	<?php if(comments_open()){
+	<?php if(comments_open()): ?>
 
+		<?php comment_form($truce_args); ?>
+
+	
+	<?php elseif(!comments_open()): ?>
+		<!-- nothing -->
+	<?php endif; ?>
+
+	<?php else: ?>
+	<?php 
 		comment_form($truce_args); 
+	?>
+<?php endif; ?>
 
-} ?>
-	
-<?php }elseif(!comments_open()){ ?>
-	
-<?php }else{ ?>
-<?php 
-
-	comment_form($truce_args); 
-
-?>
-<?php } ?>
 </div>
 <!-- END: comments -->
 

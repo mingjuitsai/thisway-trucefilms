@@ -593,8 +593,9 @@ function runBg(){
 			var vimeoID  = $('#bgImages li.active iframe').data('vimeoid');
 			
 			$('#bgImageWrapper').prepend($('<div id="vmVideo" class="vmVideo"></div>').addClass('new').addClass('source').css({ opacity:'1' }));
-			if(mobileDevice)
+			if(mobileDevice) {
 				loadVimeoPictures( vimeoID, $('#vmVideo') );
+			}
 
 			$('#vmVideo').append($('#bgImages li.active iframe').clone().attr('src', $('#bgImages li.active iframe').attr('src')+'&autoplay=0&loop=0&controls=0&player_id=vimeoplayer&autoplay=1&autopause=0').attr({'id': 'vimeoplayer', 'class': 'bgVimeoPlayer'}));
 			$('#vmVideo iframe').each(function(){
@@ -791,18 +792,18 @@ function pageLoadReady(){
 		});
 	}else{
 		pageLoaded();
+
 	}
-
-	window.console.log('pageLoadReady');
-
-	// Tag Vimeo iframe stateChange
-	contentVimeo_autoPlay();
-	contentComment_init();	
-
 }
 
 // Inner Page Loaded Actions
 function pageLoaded(){
+
+	// Tag Vimeo iframe stateChange
+	contentVimeo_autoPlay();
+	contentComment_init();
+
+
 	jQuery.event.trigger("contentPageReady", null, document, false, null);	
 	showBgCaption = false;
 	setCaptionPosition();
@@ -1199,9 +1200,8 @@ function randomString(size) {
 
 // Custom Functions 
 
-function contentVimeo_stateChange(player) {
 
-	window.console.log('contentVimeo_stateChange');
+function contentVimeo_stateChange(player) {
 
 	player.addEvent('play', contentVimeo_onPlay);
 	player.addEvent('pause', contentVimeo_onPause);
@@ -1211,21 +1211,19 @@ function contentVimeo_stateChange(player) {
 // auto play all Vimeo on content
 function contentVimeo_autoPlay() {
 
-	window.console.log('contentVimeo_autoPlay');
-
 	$("#contentBox iframe").each(function() {
 		
 		var iframe = $(this)[0];
-		var player = $f(iframe);
+		var content_vmplayer = $f(iframe);
 
-		player.addEvent('ready', function() {
-			player.api('play');
-			contentVimeo_stateChange(player)
+		content_vmplayer.addEvent('ready', function() {
+			
+			contentVimeo_stateChange(content_vmplayer)
+			content_vmplayer.api('play');
 		});
 		
 	});
 }
-
 
 function contentVimeo_onPlay(id){
 	pauseBg();
