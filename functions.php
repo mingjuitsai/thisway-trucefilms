@@ -300,7 +300,7 @@ function getSource($sourceType, $sourceData, $sourceOpen, $imageW, $imageH)
 			if($sourceType=='videolink')
 				$embedCode = '<iframe src="'.$sourceData.'" width="'.$imageW.'" height="'.$imageH.'" frameborder="0" webkitAllowFullScreen allowFullScreen></iframe>';
 			elseif($sourceType=='vimeo')
-				$embedCode = '<iframe src="http://player.vimeo.com/video/'.$sourceData.'?title=0&amp;byline=0&amp;portrait=0?api=1" width="'.$imageW.'" height="'.$imageH.'" frameborder="0" webkitAllowFullScreen allowFullScreen data-vimeoID="'.$sourceData.'"></iframe>';
+				$embedCode = '<iframe src="https://player.vimeo.com/video/'.$sourceData.'?title=0&amp;byline=0&amp;portrait=0?api=1" width="'.$imageW.'" height="'.$imageH.'" frameborder="0" webkitAllowFullScreen allowFullScreen data-vimeoID="'.$sourceData.'"></iframe>';
 			elseif($sourceType=='youtube')
 				$embedCode = '<iframe width="'.$imageW.'" height="'.$imageH.'" src="http://www.youtube.com/embed/'.$sourceData.'?wmode=transparent&rel=0" frameborder="0" allowfullscreen></iframe>';
 			elseif($sourceType=='flowplayer')
@@ -436,5 +436,20 @@ function comment_callback($comments, $args, $depth ) {
 			break;
 	}
 }
+
+// Kill Comment if not human
+function comment_isHuman(){
+	// Fuck off spammers
+	function preprocess_new_comment($commentdata) {
+		if($_POST['ishuman']!=='yes') {
+			die('SPAMMMM!');
+		}
+		return $commentdata;
+	}
+}
+add_action('preprocess_comment', 'preprocess_new_comment');
+
+
+
 
 ?>

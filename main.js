@@ -140,48 +140,48 @@ $(window).load(function(){
 		});
 	});
 	
-	if(audioSupport)
-	{
-		myAudio = new Audio(); 
-		var audioTagSupport = !!(myAudio.canPlayType);
-		{
-			$('#audioControls .pause').click(function(){
-				myAudio.pause();
-				$('#audioControls .pause').css('display','none');
-				$('#audioControls .play').css('display','block');
-			});
-			$('#audioControls .play').click(function(){
-				myAudio.play();
-				$('#audioControls .pause').css('display','block');
-				$('#audioControls .play').css('display','none');
-			});
+	// if(audioSupport)
+	// {
+	// 	myAudio = new Audio(); 
+	// 	var audioTagSupport = !!(myAudio.canPlayType);
+	// 	{
+	// 		$('#audioControls .pause').click(function(){
+	// 			myAudio.pause();
+	// 			$('#audioControls .pause').css('display','none');
+	// 			$('#audioControls .play').css('display','block');
+	// 		});
+	// 		$('#audioControls .play').click(function(){
+	// 			myAudio.play();
+	// 			$('#audioControls .pause').css('display','block');
+	// 			$('#audioControls .play').css('display','none');
+	// 		});
 			
-			$('#audioControls .next').click(function(){			
-				setNextAudio();
-				path = $('#audioList li.active').html();
-				playAudio(path);
-			});
+	// 		$('#audioControls .next').click(function(){			
+	// 			setNextAudio();
+	// 			path = $('#audioList li.active').html();
+	// 			playAudio(path);
+	// 		});
 			
-			$('#audioControls .prev').click(function(){		
-				setPrevAudio();
-				path = $('#audioList li.active').html();
-				playAudio(path);
-			});
+	// 		$('#audioControls .prev').click(function(){		
+	// 			setPrevAudio();
+	// 			path = $('#audioList li.active').html();
+	// 			playAudio(path);
+	// 		});
 			
-			playAudio($('#audioList li:first-child').addClass('active').html());
+	// 		playAudio($('#audioList li:first-child').addClass('active').html());
 			
-			btnSound = new Audio();
-			if(btnSoundURL!='')
-			{
-				var canPlayMp3 = !!btnSound.canPlayType && "" != btnSound.canPlayType('audio/mpeg');
-				btnSound.src = btnSoundURL+((canPlayMp3)?'.mp3':'.ogg');
+	// 		btnSound = new Audio();
+	// 		if(btnSoundURL!='')
+	// 		{
+	// 			var canPlayMp3 = !!btnSound.canPlayType && "" != btnSound.canPlayType('audio/mpeg');
+	// 			btnSound.src = btnSoundURL+((canPlayMp3)?'.mp3':'.ogg');
 				
-				$('a').mouseover(function(){
-					btnSound.play();
-				});
-			}
-		}
-	}
+	// 			$('a').mouseover(function(){
+	// 				btnSound.play();
+	// 			});
+	// 		}
+	// 	}
+	// }
 	
 	if(!mobileDevice)
 	{
@@ -797,7 +797,7 @@ function pageLoadReady(){
 
 	// Tag Vimeo iframe stateChange
 	contentVimeo_autoPlay();
-	//contentVimeo_stateChange();	
+	contentComment_init();	
 
 }
 
@@ -1258,8 +1258,40 @@ function loadVimeoPictures( vimeoID, container ) {
 	.always(function() {
 		console.log("complete");
 	});
-
 }
+
+
+/* Comment checking */
+
+function contentComment_init () {
+	if( $('#commentform').length ) {
+		$('#commentform').submit(function(event) {
+			event.preventDefault();
+		});
+
+		$("#commentform #submit").bind('click', function(event) {
+			console.log('submit');
+			event.preventDefault();
+
+			if( $('#ishuman').val() == '' || $('#ishuman').val()!=='yes' ){
+				event.preventDefault();
+				$('#ishuman').val('enter yes or no');
+			} else {
+				var action = $('#commentform').attr('action');
+				$('#commentform').attr({
+					'action': action + '?ishuman=' + $('#ishuman').val()
+				});
+				$('#commentform').submit();
+			}
+		});
+	}
+}
+
+
+
+
+
+
 
 
 

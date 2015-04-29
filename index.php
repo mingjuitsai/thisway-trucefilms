@@ -94,7 +94,7 @@ var bgStretch = <?php eopt('bgStretch','true');?>;
 <script type='text/javascript' src="<?php echo $tmpurl;?>/js/froogaloop.js"></script>
 
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> data-root="<?php echo site_url(); ?>">
 <div id="body-wrapper">
 	<!-- BEGIN: Main Elements -->
 	<div id="bgImage"><div id="bgImageWrapper" class="bgImage"></div></div>
