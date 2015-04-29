@@ -140,48 +140,48 @@ $(window).load(function(){
 		});
 	});
 	
-	// if(audioSupport)
-	// {
-	// 	myAudio = new Audio(); 
-	// 	var audioTagSupport = !!(myAudio.canPlayType);
-	// 	{
-	// 		$('#audioControls .pause').click(function(){
-	// 			myAudio.pause();
-	// 			$('#audioControls .pause').css('display','none');
-	// 			$('#audioControls .play').css('display','block');
-	// 		});
-	// 		$('#audioControls .play').click(function(){
-	// 			myAudio.play();
-	// 			$('#audioControls .pause').css('display','block');
-	// 			$('#audioControls .play').css('display','none');
-	// 		});
+	if(audioSupport)
+	{
+		myAudio = new Audio(); 
+		var audioTagSupport = !!(myAudio.canPlayType);
+		{
+			$('#audioControls .pause').click(function(){
+				myAudio.pause();
+				$('#audioControls .pause').css('display','none');
+				$('#audioControls .play').css('display','block');
+			});
+			$('#audioControls .play').click(function(){
+				myAudio.play();
+				$('#audioControls .pause').css('display','block');
+				$('#audioControls .play').css('display','none');
+			});
 			
-	// 		$('#audioControls .next').click(function(){			
-	// 			setNextAudio();
-	// 			path = $('#audioList li.active').html();
-	// 			playAudio(path);
-	// 		});
+			$('#audioControls .next').click(function(){			
+				setNextAudio();
+				path = $('#audioList li.active').html();
+				playAudio(path);
+			});
 			
-	// 		$('#audioControls .prev').click(function(){		
-	// 			setPrevAudio();
-	// 			path = $('#audioList li.active').html();
-	// 			playAudio(path);
-	// 		});
+			$('#audioControls .prev').click(function(){		
+				setPrevAudio();
+				path = $('#audioList li.active').html();
+				playAudio(path);
+			});
 			
-	// 		playAudio($('#audioList li:first-child').addClass('active').html());
+			playAudio($('#audioList li:first-child').addClass('active').html());
 			
-	// 		btnSound = new Audio();
-	// 		if(btnSoundURL!='')
-	// 		{
-	// 			var canPlayMp3 = !!btnSound.canPlayType && "" != btnSound.canPlayType('audio/mpeg');
-	// 			btnSound.src = btnSoundURL+((canPlayMp3)?'.mp3':'.ogg');
+			btnSound = new Audio();
+			if(btnSoundURL!='')
+			{
+				var canPlayMp3 = !!btnSound.canPlayType && "" != btnSound.canPlayType('audio/mpeg');
+				btnSound.src = btnSoundURL+((canPlayMp3)?'.mp3':'.ogg');
 				
-	// 			$('a').mouseover(function(){
-	// 				btnSound.play();
-	// 			});
-	// 		}
-	// 	}
-	// }
+				$('a').mouseover(function(){
+					btnSound.play();
+				});
+			}
+		}
+	}
 	
 	if(!mobileDevice)
 	{
