@@ -27,7 +27,7 @@ else
 	wp_enqueue_style('ThemeStyle', $tmpurl."/style_dark.php?preview=$prevID", false, null, 'all');
 	
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
+<html>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
