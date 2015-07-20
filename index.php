@@ -91,7 +91,6 @@ var bgStretch = <?php eopt('bgStretch','true');?>;
 	});
 <?php }?>
 </script>
-<script type='text/javascript' src="<?php echo $tmpurl;?>/js/froogaloop.js"></script>
 
 </head>
 <body <?php body_class(); ?>>

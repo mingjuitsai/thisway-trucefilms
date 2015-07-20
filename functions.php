@@ -74,7 +74,8 @@ function addionalCharacter($URL){
 function thematic_enqueue_scripts(){
 	$tmpurl = get_template_directory_uri();
 	
-	wp_enqueue_script("jquery", "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js", false, null, false); 
+	wp_enqueue_script("jquery", "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js", false, null, false);
+	wp_enqueue_script("froogaloop","https://f.vimeocdn.com/js/froogaloop2.min.js", false, null, true); 
 	wp_enqueue_script("easing",$tmpurl."/js/jquery.easing.1.3.js", false, null, true);
 	wp_enqueue_script("prettyPhoto",$tmpurl."/js/prettyPhoto/js/jquery.prettyPhoto.js", false, null, true);
 	wp_enqueue_script("quicksand", $tmpurl."/js/jquery.quicksand.js", false, null, true); 
@@ -300,7 +301,7 @@ function getSource($sourceType, $sourceData, $sourceOpen, $imageW, $imageH)
 			if($sourceType=='videolink')
 				$embedCode = '<iframe src="'.$sourceData.'" width="'.$imageW.'" height="'.$imageH.'" frameborder="0" webkitAllowFullScreen allowFullScreen></iframe>';
 			elseif($sourceType=='vimeo')
-				$embedCode = '<iframe src="http://player.vimeo.com/video/'.$sourceData.'?title=0&amp;byline=0&amp;portrait=0?api=1" width="'.$imageW.'" height="'.$imageH.'" frameborder="0" webkitAllowFullScreen allowFullScreen data-vimeoID="'.$sourceData.'"></iframe>';
+				$embedCode = '<iframe src="https://player.vimeo.com/video/'.$sourceData.'?title=0&amp;byline=0&amp;portrait=0?api=1" width="'.$imageW.'" height="'.$imageH.'" frameborder="0" webkitAllowFullScreen allowFullScreen data-vimeoID="'.$sourceData.'"></iframe>';
 			elseif($sourceType=='youtube')
 				$embedCode = '<iframe width="'.$imageW.'" height="'.$imageH.'" src="http://www.youtube.com/embed/'.$sourceData.'?wmode=transparent&rel=0" frameborder="0" allowfullscreen></iframe>';
 			elseif($sourceType=='flowplayer')
